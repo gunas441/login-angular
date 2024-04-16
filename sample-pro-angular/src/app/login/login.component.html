@@ -1,0 +1,30 @@
+<main class="form-signin w-50 mt-5 m-auto">
+    <div *ngIf="alertMsg" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <strong>{{alertMsg}}</strong> Please, put the valid data.
+    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <h1 class="h3 mb-3 fw-normal py-2">Log In</h1>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control" id="floatingInput" formControlName="userName"
+                placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && loc['userName'].errors}">
+            <label for="floatingInput">Email address</label>
+            <div *ngIf="submitted && loc['userName'].errors" class="invalid-feedback">
+                <div *ngIf="loc['userName'].errors['required']">Email is required</div>
+                <div *ngIf="loc['userName'].errors['email']">Please provide a valid email address</div>
+            </div>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="password" class="form-control" id="floatingPassword" formControlName="password"
+                placeholder="Password" [ngClass]="{ 'is-invalid': submitted && loc['password'].errors}">
+            <label for="floatingPassword">Password</label>
+            <div *ngIf="submitted && loc['password'].errors" class="invalid-feedback">
+                <div *ngIf="loc['password'].errors['required']">Password is required</div>
+                <div *ngIf="loc['password'].errors['pattern']">Password must contain at least one number, one uppercase and a
+                    lowercase letter and at least 8 characters<br />Password cannot
+                    contain whitespace</div>
+            </div>
+        </div>
+        <div class="pe-auto text-end m-2" routerLink="/register"><a href="javascript:;" class="pe-auto fw-semibold link-underline-primary">Please Register?</a></div>
+        <button class="btn btn-primary w-100 py-2" type="submit">Log in</button>
+    </form>
+</main>
