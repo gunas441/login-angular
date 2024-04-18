@@ -17,4 +17,8 @@ export class UserListComponent implements OnInit {
     this.userList = loginData;
   }
 
+  updateData(id:any){
+    this.router.navigate(['/update/'+id]);
+  }
+
 }

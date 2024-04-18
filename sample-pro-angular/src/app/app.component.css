@@ -1,0 +1,13 @@
+.bg-img {
+    /* The image used */
+    background-image: url("../assets/images/lanpage.jpg");
+
+    /* Control the height of the image */
+    min-height: 712px;
+
+    /* Center and scale the image nicely */
+    background-position: start;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}

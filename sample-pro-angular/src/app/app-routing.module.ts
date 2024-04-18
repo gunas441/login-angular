@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UpdateRegisterComponent } from './update-register/update-register.component';
 
 const routes: Routes = [{path:'',redirectTo:'login',pathMatch: 'full'},{path:'login',component:LoginComponent},
-{path:'register',component:RegisterComponent},{path:'user-list/:name',component:UserListComponent}];
+{path:'register',component:RegisterComponent},{path:'user-list/:name',component:UserListComponent}
+,{path:'update/:id',component:UpdateRegisterComponent}];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

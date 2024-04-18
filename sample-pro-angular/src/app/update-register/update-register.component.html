@@ -1,6 +1,6 @@
-<div class="form-signin w-50 m-auto">
+<main class="form-signin w-50 mt-5 m-auto">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-        <h1 class="h3 mb-3 fw-normal py-2">Register</h1>
+        <h1 class="h3 mb-3 fw-normal py-2">Update Register</h1>
         <div class="form-floating mb-3">
             <input type="text" class="form-control" formControlName="name"
                 placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && res['name'].errors}">
@@ -30,7 +30,7 @@
                     contain whitespace</div>
             </div>
         </div>
-        <div class="pe-auto text-end m-2" routerLink="/login"><a href="javascript:;" class="pe-auto fw-semibold link-underline-primary">Login?</a></div>
+        <div class="pe-auto text-end m-2" routerLink="/register"><a href="javascript:;" class="pe-auto fw-semibold link-underline-primary">Back to register?</a></div>
         <button class="btn btn-primary w-100 py-2" type="submit">Submit</button>
     </form>
-</div>
+</main>

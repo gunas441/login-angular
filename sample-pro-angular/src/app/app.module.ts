@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UserListComponent } from './user-list/user-list.component';
+import { UpdateRegisterComponent } from './update-register/update-register.component';
 
 const routes: Routes = [];
 @NgModule({
@@ -15,7 +16,8 @@ const routes: Routes = [];
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UserListComponent
+    UserListComponent,
+    UpdateRegisterComponent
   ],
   imports: [
     BrowserModule,
