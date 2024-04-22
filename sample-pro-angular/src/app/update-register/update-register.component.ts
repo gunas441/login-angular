@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import loginData from '../db.json';
+import { RegisterService } from '../service/register.service';
+import { Register } from '../class/register';
+import { RegisterResponse } from '../class/register-reponse';
 @Component({
   selector: 'app-update-register',
   templateUrl: './update-register.component.html',
@@ -12,23 +15,35 @@ export class UpdateRegisterComponent implements OnInit{
   submitted: boolean = false;
   id: number = 0;
   dataArray: any[]=[];
-  userData:any
+  userData:any;
+  savedUsers:any;
+  userList:any;
 
   constructor(private formBuilder: FormBuilder,private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router
+    // ,private registerService:RegisterService<Register>
+  ) { }
 
   get res() {
     return this.registerForm.controls;
   }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['regId'];
     this.registerForm = this.formBuilder.group({
-      id: [this.id],
-      name: ['', Validators.compose([Validators.required, Validators.pattern('^[A-Za-z]+$')])],
-      userName: ['', Validators.compose([Validators.required, Validators.email])],
+      regId: [this.id],
+      fullName: ['', Validators.compose([Validators.required, Validators.pattern('^[A-Za-z ]+$')])],
+      email: ['', Validators.compose([Validators.required, Validators.email])],
       password: ['', Validators.compose([Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])]
     });
+
+    //Backend
+    // this.registerService.getByRegId(this.id).subscribe((response:RegisterResponse<Register>)=>{
+    //   this.userList = response;
+    //   this.registerForm.patchValue(this.userList);
+    // });
+
+    //Frontend
     this.userData = loginData;
     for(var i=0;this.userData.length>i;i++){
       this.registerForm.patchValue(this.userData[i]);
@@ -40,8 +55,14 @@ export class UpdateRegisterComponent implements OnInit{
     if (this.registerForm.invalid) {
       return;
     }
+     //Backend
+    // this.registerService.save(this.registerForm.value).subscribe((response:RegisterResponse<Register>)=>{
+    //   this.savedUsers = response;
+    // });
+
+    //Frontend
     this.dataArray.push(this.registerForm.value);
-    // this.registerForm.reset();
-    this.router.navigate(['/login']);
+
+    this.router.navigate(['/user-list']);
   }
 }

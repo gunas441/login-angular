@@ -1,22 +1,22 @@
-<div class="form-signin w-50 m-auto">
+<div class="form-signin w-50 mt-5 m-auto">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
         <h1 class="h3 mb-3 fw-normal py-2">Register</h1>
         <div class="form-floating mb-3">
-            <input type="text" class="form-control" formControlName="name"
-                placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && res['name'].errors}">
+            <input type="text" class="form-control" formControlName="fullName"
+                placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && res['fullName'].errors}">
             <label for="name">Full Name</label>
-            <div *ngIf="submitted && res['name'].errors" class="invalid-feedback">
-                <div *ngIf="res['name'].errors['required']">Name is required</div>
-                <div *ngIf="res['name'].errors['pattern']">Please provide a valid name</div>
+            <div *ngIf="submitted && res['fullName'].errors" class="invalid-feedback">
+                <div *ngIf="res['fullName'].errors['required']">Name is required</div>
+                <div *ngIf="res['fullName'].errors['pattern']">Please provide a valid name</div>
             </div>
         </div>
         <div class="form-floating mb-3">
-            <input type="email" class="form-control" formControlName="userName"
-                placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && res['userName'].errors}">
+            <input type="email" class="form-control" formControlName="email"
+                placeholder="name@example.com" [ngClass]="{ 'is-invalid': submitted && res['email'].errors}">
             <label for="email">Email address</label>
-            <div *ngIf="submitted && res['userName'].errors" class="invalid-feedback">
-                <div *ngIf="res['userName'].errors['required']">Email is required</div>
-                <div *ngIf="res['userName'].errors['email']">Please provide a valid email address</div>
+            <div *ngIf="submitted && res['email'].errors" class="invalid-feedback">
+                <div *ngIf="res['email'].errors['required']">Email is required</div>
+                <div *ngIf="res['email'].errors['email']">Please provide a valid email address</div>
             </div>
         </div>
         <div class="form-floating mb-3">

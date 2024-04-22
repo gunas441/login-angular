@@ -1,14 +1,14 @@
 [
     {
-        "id":1,
-        "name":"Guna",
-        "userName":"guna@gmail.com",
+        "regId":1,
+        "fullName":"Guna",
+        "email":"guna@gmail.com",
         "password":"@Guna1234"
     },
     {
-        "id":2,
-        "name":"Arun",
-        "userName":"arun@gmail.com",
+        "regId":2,
+        "fullName":"Arun",
+        "email":"arun@gmail.com",
         "password":"@Arun1234"
     }
 ]
